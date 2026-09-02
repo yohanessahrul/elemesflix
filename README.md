@@ -2,17 +2,14 @@
 
 A modern movie discovery web application built as part of a Frontend Developer Technical Test for Elemes Group.
 
-## Production
+Demo: https://elflix.vercel.app/
 
-https://elflix.vercel.app/
+## Features
 
-## Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
-
-`VITE_TMDB_API_KEY`
-`VITE_TMDB_BASE_URL`
-`VITE_TMDB_IMAGE_URL`
+- Upcoming & Popular Movies
+- Popular & Top Rated TV Shows
+- Watching List
+- Search Movie
 
 ## Run Locally
 
@@ -40,12 +37,11 @@ Start the server
   npm run dev
 ```
 
-## Features
+To run this project, you will need to add the following environment variables to your .env file
 
-- Upcoming & Popular Movies
-- Popular & Top Rated TV Shows
-- Watching List
-- Search Movie
+`VITE_TMDB_API_KEY`
+`VITE_TMDB_BASE_URL`
+`VITE_TMDB_IMAGE_URL`
 
 ## API Reference
 
@@ -79,4 +75,4 @@ Start the server
 
 ## Tech Stack
 
-React, Vite, Typescript, Tanstack-Query, Zustand, Axios
+Vite, React, React Router DOM, Typescript, Tanstack-Query, Zustand, Axios, Embla Carousel
