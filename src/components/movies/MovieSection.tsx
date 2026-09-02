@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
-import type { Movie, MovieResponse } from "../../types/movies";
+import { useEffect, useState } from 'react';
+import type { Movie, MovieResponse } from '../../types/movies';
 import useEmblaCarousel from 'embla-carousel-react';
-import SectionLoader from "../common/SectionLoader";
-import SectionError from "../common/SectionError";
+import SectionLoader from '../common/SectionLoader';
+import SectionError from '../common/SectionError';
+import PosterCard from '../common/PosterCard';
 
 interface MovieQueryResult {
   data?: MovieResponse;
@@ -12,14 +13,17 @@ interface MovieQueryResult {
 }
 
 interface RowSectionType {
-  title: string,
-  customMovieHooks: () => MovieQueryResult
+  title: string;
+  customMovieHooks: () => MovieQueryResult;
 }
 
-export default function MovieSection (props: RowSectionType) {
+export default function MovieSection(props: RowSectionType) {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const {data, isLoading, isError, error} = props.customMovieHooks();
-  const [emblaRef, emblaApi] = useEmblaCarousel({ containScroll: false, slidesToScroll: 5 });
+  const { data, isLoading, isError, error } = props.customMovieHooks();
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    containScroll: false,
+    slidesToScroll: 5,
+  });
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -30,19 +34,19 @@ export default function MovieSection (props: RowSectionType) {
 
     onSelect();
 
-    emblaApi.on("select", onSelect);
+    emblaApi.on('select', onSelect);
 
     return () => {
-      emblaApi.off("select", onSelect);
+      emblaApi.off('select', onSelect);
     };
   }, [emblaApi]);
 
   if (isLoading) {
-    return <SectionLoader title={props.title} />
+    return <SectionLoader title={props.title} />;
   }
 
   if (isError) {
-    return <SectionError title={props.title} error={error} />
+    return <SectionError title={props.title} error={error} />;
   }
 
   return (
@@ -52,14 +56,14 @@ export default function MovieSection (props: RowSectionType) {
         <div className="embla">
           <div className="embla__viewport" ref={emblaRef}>
             <div className="embla__container">
-                {data && data.results.length !== 0 && data.results.map((item: Movie) => {
+              {data &&
+                data.results.length !== 0 &&
+                data.results.map((item: Movie) => {
                   return (
                     <div key={item.id} className="embla__slide">
-                      <div className="rounded-lg overflow-hidden">
-                        <img src={`${import.meta.env.VITE_TMDB_IMAGE_URL}/w300${item.poster_path}`} alt={item.title}/>
-                      </div>
+                      <PosterCard item={item} alt={item.title} />
                     </div>
-                  )
+                  );
                 })}
             </div>
           </div>
@@ -70,19 +74,16 @@ export default function MovieSection (props: RowSectionType) {
                 key={index}
                 type="button"
                 aria-label={`Go to slide ${index + 1}`}
-                aria-current={selectedIndex === index ? "true" : undefined}
+                aria-current={selectedIndex === index ? 'true' : undefined}
                 onClick={() => emblaApi?.scrollTo(index)}
                 className={`h-2 rounded-full transition-all ${
-                  selectedIndex === index
-                    ? "w-6 bg-white"
-                    : "w-2 bg-gray-500"
+                  selectedIndex === index ? 'w-6 bg-white' : 'w-2 bg-gray-500'
                 }`}
               />
             ))}
           </div>
-
         </div>
       </div>
     </section>
-  )
+  );
 }
