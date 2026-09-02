@@ -53,8 +53,8 @@ export default function TVSection(props: RowSectionType) {
 
   return (
     <section aria-labelledby={props.title.toLowerCase()}>
-      <h2 className="text-white text-2xl font-bold">{props.title}</h2>
-      <div className="w-full my-4">
+      <h2 className="text-gray-300 text-[20px] sm:text-2xl font-bold ml-2">{props.title}</h2>
+      <div className="w-full my-2 sm:my-4">
         <div className="embla">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex [touch-action:pan-y_pinch-zoom]">
