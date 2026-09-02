@@ -9,3 +9,8 @@ export const getUpcomingMovies = async () => {
   const response = await api.get('/movie/upcoming');
   return response.data;
 };
+
+export const getLatestMovies = async () => {
+  const response = await api.get('/discover/movie?page=1');
+  return response.data;
+};

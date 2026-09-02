@@ -1,6 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { getPopularMovies, getUpcomingMovies } from '../services/movieApi';
+import {
+  getLatestMovies,
+  getPopularMovies,
+  getUpcomingMovies,
+} from '../services/movieApi';
 
 export const usePopularMovies = () => {
   return useQuery({
@@ -13,5 +17,12 @@ export const useUpcomingMovies = () => {
   return useQuery({
     queryKey: ['movies', 'upcoming'],
     queryFn: getUpcomingMovies,
+  });
+};
+
+export const useLatestMovies = () => {
+  return useQuery({
+    queryKey: ['movies', 'latest'],
+    queryFn: getLatestMovies,
   });
 };
