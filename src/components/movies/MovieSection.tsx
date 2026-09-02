@@ -24,6 +24,7 @@ export default function MovieSection(props: RowSectionType) {
     containScroll: false,
     slidesToScroll: 1,
     startIndex: 2,
+    loop: true,
   });
 
   useEffect(() => {
@@ -72,7 +73,7 @@ export default function MovieSection(props: RowSectionType) {
             </div>
           </div>
 
-          <div className="mt-4 flex justify-end gap-2">
+          <div className="mt-4 flex justify-end gap-1">
             {emblaApi?.scrollSnapList().map((_, index) => (
               <button
                 key={index}
@@ -80,8 +81,8 @@ export default function MovieSection(props: RowSectionType) {
                 aria-label={`Go to slide ${index + 1}`}
                 aria-current={selectedIndex === index ? 'true' : undefined}
                 onClick={() => emblaApi?.scrollTo(index)}
-                className={`h-2 rounded-full transition-all ${
-                  selectedIndex === index ? 'w-6 bg-white' : 'w-2 bg-gray-500'
+                className={`h-1 sm:h-1 md:h-2 rounded-full transition-all ${
+                  selectedIndex === index ? 'w-3 sm:w-3 md:w-6 bg-white' : 'w-1 sm:w-1 md:w-2 bg-gray-500'
                 }`}
               />
             ))}
