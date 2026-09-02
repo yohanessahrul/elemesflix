@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import type { Movie, MovieResponse } from "../../types/movies";
 import useEmblaCarousel from 'embla-carousel-react';
+import SectionLoader from "../common/SectionLoader";
+import SectionError from "../common/SectionError";
 
 interface MovieQueryResult {
   data?: MovieResponse;
   isLoading: boolean;
   isError: boolean;
+  error: any;
 }
 
 interface RowSectionType {
@@ -15,7 +18,7 @@ interface RowSectionType {
 
 export default function MovieSection (props: RowSectionType) {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const {data, isLoading, isError} = props.customMovieHooks();
+  const {data, isLoading, isError, error} = props.customMovieHooks();
   const [emblaRef, emblaApi] = useEmblaCarousel({ containScroll: false, slidesToScroll: 5 });
 
   useEffect(() => {
@@ -35,31 +38,16 @@ export default function MovieSection (props: RowSectionType) {
   }, [emblaApi]);
 
   if (isLoading) {
-    return (
-      <section>
-        <h2 className="text-white text-2xl">{props.title}</h2>
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 my-4">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <div key={index} className="w-full min-h-87.5 rounded-lg overflow-hidden">
-              <div className="w-full h-full bg-gray-700" />
-            </div>
-          ))}
-        </div>
-      </section>
-    )
+    return <SectionLoader title={props.title} />
   }
 
   if (isError) {
-    return (
-      <div className="w-full min-h-12.5 bg-red-200 my-4">
-        Error !
-      </div>
-    )
+    return <SectionError title={props.title} error={error} />
   }
 
   return (
     <section aria-labelledby={props.title.toLowerCase()}>
-      <h2 className="text-white text-2xl">{props.title}</h2>
+      <h2 className="text-white text-2xl font-bold">{props.title}</h2>
       <div className="w-full my-4">
         <div className="embla">
           <div className="embla__viewport" ref={emblaRef}>
