@@ -22,7 +22,8 @@ export default function MovieSection(props: RowSectionType) {
   const { data, isLoading, isError, error } = props.customMovieHooks();
   const [emblaRef, emblaApi] = useEmblaCarousel({
     containScroll: false,
-    slidesToScroll: 5,
+    slidesToScroll: 1,
+    startIndex: 2
   });
 
   useEffect(() => {
