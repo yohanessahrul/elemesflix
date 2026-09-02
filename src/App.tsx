@@ -1,18 +1,15 @@
 import './App.css';
-import { useUpcomingMovies } from './hooks/useMovies';
+import Header from './components/layout/Header';
+import Layout from './routes/AppRouter';
 
 function App() {
-  const { data, isLoading, isError } = useUpcomingMovies()
-
   return (
-    <>
-    <h1>App</h1>
-    <div>
-      {isLoading}
-      {JSON.stringify(data)}
-      {isError}
+    <div className="relative min-h-screen bg-black">
+      <Header />
+      <main>
+        <Layout />
+      </main>
     </div>
-    </>
   );
 }
 
