@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import type { TVShow, TVShowResponse } from "../../types/tvs";
 import useEmblaCarousel from 'embla-carousel-react';
 
@@ -13,8 +14,25 @@ interface RowSectionType {
 }
 
 export default function TVSection (props: RowSectionType) {
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const {data, isLoading, isError} = props.customTVHooks();
-  const [emblaRef] = useEmblaCarousel({ containScroll: false, slidesToScroll: 5 });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ containScroll: false, slidesToScroll: 5 });
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+
+    onSelect();
+
+    emblaApi.on("select", onSelect);
+
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi]);
 
   if (isLoading) {
     return (
@@ -56,6 +74,23 @@ export default function TVSection (props: RowSectionType) {
                   )
                 })}
             </div>
+          </div>
+
+          <div className="mt-4 flex justify-end gap-2">
+            {emblaApi?.scrollSnapList().map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                aria-label={`Go to slide ${index + 1}`}
+                aria-current={selectedIndex === index ? "true" : undefined}
+                onClick={() => emblaApi?.scrollTo(index)}
+                className={`h-2 rounded-full transition-all ${
+                  selectedIndex === index
+                    ? "w-6 bg-white"
+                    : "w-2 bg-gray-500"
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>
