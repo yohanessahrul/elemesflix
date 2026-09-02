@@ -6,7 +6,8 @@ export default function Home () {
   return (
     <>
       <h1 className="text-white">Home Page</h1>
-      {!isLoading && JSON.stringify(data)}
+      {!isLoading && <p className="text-yellow-400">{JSON.stringify(data)}</p>}
+      
     </>
   )
 }
