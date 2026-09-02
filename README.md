@@ -47,6 +47,36 @@ Start the server
 - Watching List
 - Search Movie
 
+## API Reference
+
+#### Popular, upcoming, and latest movies
+
+```http
+  GET /movie/popular
+```
+
+```http
+  GET /movie/upcoming
+```
+
+```http
+  GET /discover/movie
+```
+
+#### Popular, top rated, and latest tv shows
+
+```http
+  GET /tv/popular
+```
+
+```http
+  GET /tv/top_rated
+```
+
+```http
+  GET /discover/tv
+```
+
 ## Tech Stack
 
 React, Vite, Typescript, Tanstack-Query, Zustand, Axios
