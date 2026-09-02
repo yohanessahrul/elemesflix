@@ -21,7 +21,7 @@ export default function TvShowPage () {
       <div className="flex flex-wrap my-4">
         {data && data.results.length !== 0 && data.results.map((item: TVShow) => {
           return (
-            <div key={item.id} className="embla__slide mb-4">
+            <div key={item.id} className="min-w-0 shrink-0 basis-1/3 px-2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 mb-4">
               <PosterCard item={item} alt={item.original_name ? item.original_name : ""} />
             </div>
           );
