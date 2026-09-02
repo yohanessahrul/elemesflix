@@ -37,11 +37,13 @@ Start the server
   npm run dev
 ```
 
-To run this project, you will need to add the following environment variables to your .env file
+To run this project, you will need to add the following environment variables to your `.env` file
 
-`VITE_TMDB_API_KEY`
-`VITE_TMDB_BASE_URL`
-`VITE_TMDB_IMAGE_URL`
+```bash
+VITE_TMDB_API_KEY=
+VITE_TMDB_BASE_URL=
+VITE_TMDB_IMAGE_URL=
+```
 
 ## API Reference
 
