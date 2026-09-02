@@ -23,7 +23,7 @@ export default function MovieSection(props: RowSectionType) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     containScroll: false,
     slidesToScroll: 1,
-    startIndex: 2
+    startIndex: 2,
   });
 
   useEffect(() => {
@@ -55,13 +55,16 @@ export default function MovieSection(props: RowSectionType) {
       <h2 className="text-white text-2xl font-bold">{props.title}</h2>
       <div className="w-full my-4">
         <div className="embla">
-          <div className="embla__viewport" ref={emblaRef}>
-            <div className="embla__container">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex [touch-action:pan-y_pinch-zoom]">
               {data &&
                 data.results.length !== 0 &&
                 data.results.map((item: Movie) => {
                   return (
-                    <div key={item.id} className="embla__slide">
+                    <div
+                      key={item.id}
+                      className="min-w-0 shrink-0 basis-1/3 px-2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5"
+                    >
                       <PosterCard item={item} alt={item.title} />
                     </div>
                   );
