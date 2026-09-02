@@ -31,12 +31,6 @@ Install dependencies
   npm install
 ```
 
-Start the server
-
-```bash
-  npm run dev
-```
-
 To run this project, you will need to add the following environment variables to your `.env` file
 
 ```bash
@@ -45,33 +39,27 @@ VITE_TMDB_BASE_URL=
 VITE_TMDB_IMAGE_URL=
 ```
 
+Start the server
+
+```bash
+  npm run dev
+```
+
 ## API Reference
 
-#### Popular, upcoming, and latest movies
+#### Popular, upcoming, and latest `movies`
 
 ```http
   GET /movie/popular
-```
-
-```http
   GET /movie/upcoming
-```
-
-```http
   GET /discover/movie
 ```
 
-#### Popular, top rated, and latest tv shows
+#### Popular, top rated, and latest `tv shows`
 
 ```http
   GET /tv/popular
-```
-
-```http
   GET /tv/top_rated
-```
-
-```http
   GET /discover/tv
 ```
 
