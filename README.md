@@ -2,6 +2,10 @@
 
 A modern movie discovery web application built as part of a Frontend Developer Technical Test for Elemes Group.
 
+## Production
+
+https://elflix.vercel.app/
+
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
@@ -35,6 +39,13 @@ Start the server
 ```bash
   npm run dev
 ```
+
+## Features
+
+- Upcoming & Popular Movies
+- Popular & Top Rated TV Shows
+- Watching List
+- Search Movie
 
 ## Tech Stack
 
