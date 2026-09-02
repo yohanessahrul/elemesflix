@@ -11,7 +11,7 @@ export const usePopularMovies = () => {
 
 export const useUpcomingMovies = () => {
   return useQuery({
-    queryKey: ['movies', ''],
+    queryKey: ['movies', 'upcoming'],
     queryFn: getUpcomingMovies,
   });
 };

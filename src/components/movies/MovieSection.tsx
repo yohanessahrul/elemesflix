@@ -8,18 +8,17 @@ interface RowSectionType {
 export default function MovieSection (props: RowSectionType) {
   const {data, isLoading, isError} = props.customMovieHooks();
 
-
   if (isLoading) {
     return (
       <>
-      <h2 className="text-white text-2xl">{props.title}</h2>
-      <div className="flex gap-4 overflow-hidden">
-        {Array.from({ length: 6 }).map((_, index) => (
-          <div key={index} className="w-40 shrink-0 animate-pulse">
-            <div className="aspect-2/3 rounded-lg bg-gray-700" />
-          </div>
-        ))}
-      </div>
+        <h2 className="text-white text-2xl">{props.title}</h2>
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+          {Array.from({ length: 6 }).map((_, index) => (
+            <div key={index} className="w-full min-h-[300px] rounded-lg overflow-hidden">
+              <div className="w-full h-full bg-gray-700" />
+            </div>
+          ))}
+        </div>
       </>
     )
   }
@@ -35,14 +34,14 @@ export default function MovieSection (props: RowSectionType) {
   return (
     <section aria-labelledby={props.title.toLowerCase()}>
       <h2 className="text-white text-2xl">{props.title}</h2>
-      <div className="w-full min-h-12.5 bg-amber-200 my-4">
+      <div className="w-full h-77.5 my-4 overflow-hidden">
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
           {data.results.length !== 0 && data.results.map((item: Movie) => {
             return (
               <div key={item.id}>
                 <div>
-                  <div className="w-full min-h-10 bg-red-200 rounded-lg overflow-hidden">
-                    <img src={`${import.meta.env.VITE_TMDB_IMAGE_URL}/w500${item.poster_path}`} alt={item.title}/>
+                  <div className="w-full min-h-10 rounded-lg overflow-hidden">
+                    <img src={`${import.meta.env.VITE_TMDB_IMAGE_URL}/w300${item.poster_path}`} alt={item.title}/>
                   </div>
                 </div>
               </div>

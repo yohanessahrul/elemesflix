@@ -11,7 +11,7 @@ export const usePopularTv = () => {
 
 export const useTopRatedTv = () => {
   return useQuery({
-    queryKey: ['movies', ''],
+    queryKey: ['tv', 'top-rated'],
     queryFn: getTopRatedTv,
   });
 };
