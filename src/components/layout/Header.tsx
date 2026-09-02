@@ -13,7 +13,7 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-5 text-[14px] md:flex">
-          <a href="/movies" className="font-medium text-white">
+          <a href="/movies" className="text-gray-300 transition hover:text-white">
             Movies
           </a>
 

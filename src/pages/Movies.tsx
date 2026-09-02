@@ -8,16 +8,16 @@ export default function MoviesPage () {
   const {data, isLoading, isError, error} = useLatestMovies();
 
   if (isLoading) {
-    return <SectionLoader title="Latest Movie" />;
+    return <SectionLoader title="Latest Movies" />;
   }
 
   if (isError) {
-    return <SectionError title="Latest Movie" error={error} />;
+    return <SectionError title="Latest Movies" error={error} />;
   }
 
   return (
-    <section aria-labelledby="Latest Movie">
-      <h2 className="text-white text-2xl font-bold">Latest Movie</h2>
+    <section aria-labelledby="Latest Movies">
+      <h2 className="text-white text-2xl font-bold">Latest Movies</h2>
       <div className="flex flex-wrap my-4">
         {data && data.results.length !== 0 && data.results.map((item: Movie) => {
           return (

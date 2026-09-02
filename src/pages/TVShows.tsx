@@ -17,7 +17,7 @@ export default function TvShowPage () {
 
   return (
     <section aria-labelledby="Latest TV">
-      <h2 className="text-white text-2xl font-bold">Latest TV</h2>
+      <h2 className="text-white text-2xl font-bold">Latest TV Show</h2>
       <div className="flex flex-wrap my-4">
         {data && data.results.length !== 0 && data.results.map((item: TVShow) => {
           return (
