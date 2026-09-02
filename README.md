@@ -1,4 +1,4 @@
-# 🎬 Elemesflix
+# 🎬 Elflix
 
 A modern movie discovery web application built as part of a Frontend Developer Technical Test for Elemes Group.
 

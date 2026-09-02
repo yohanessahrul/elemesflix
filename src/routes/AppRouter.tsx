@@ -4,7 +4,7 @@ import DetailPage from "../pages/Detail";
 import MoviesPage from "../pages/Movies";
 import WatchListPage from "../pages/WatchList";
 
-export default function Layout() {
+export default function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
