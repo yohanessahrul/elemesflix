@@ -1,8 +1,8 @@
-# 🎬 Elflix
+# 🎬 Elemesflix
 
 A modern movie discovery web application built as part of a Frontend Developer Technical Test for Elemes Group.
 
-Demo: https://elflix.vercel.app/
+Demo: https://elemesflix.vercel.app/
 
 ## Features
 
@@ -61,6 +61,12 @@ Start the server
   GET /tv/popular
   GET /tv/top_rated
   GET /discover/tv
+```
+
+#### Multiple search
+
+```http
+  GET /search/multi
 ```
 
 ## Tech Stack
