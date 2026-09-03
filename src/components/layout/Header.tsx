@@ -5,11 +5,11 @@ export default function Header() {
     <header className="fixed left-0 right-0 top-0 z-50 bg-linear-to-b from-black/100 to-transparent">
       <div className="flex h-[68px] items-center px-4 md:px-8 lg:px-12">
         {/* Logo */}
-        <a href="/" className="mr-8 shrink-0">
+        <Link to="/" className="mr-8 shrink-0">
           <span className="text-[24px] font-black tracking-[-1.5px] text-red-600 md:text-[28px]">
-            ELFLIX
+            ELEMESFLIX
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-5 text-[14px] md:flex">

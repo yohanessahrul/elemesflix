@@ -1,4 +1,5 @@
 import PosterCard from "../components/common/PosterCard";
+import SectionEmpty from "../components/common/SectionEmpty";
 import { useWatchlists } from "../stores/watchlist-store"
 
 export default function WatchListPage () {
@@ -6,9 +7,7 @@ export default function WatchListPage () {
 
   if (watchList.length === 0) {
     return (
-      <section aria-labelledby="Watchlist">
-        <h2 className="text-white text-2xl font-bold">Watchlist</h2>
-      </section>
+      <SectionEmpty />
     )
   }
 
