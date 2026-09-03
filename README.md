@@ -71,4 +71,4 @@ Start the server
 
 ## Tech Stack
 
-Vite, React, React Router DOM, Typescript, Tanstack-Query, Zustand, Axios, Embla Carousel
+Vite, React, React Router DOM, Typescript, Tanstack-Query, Zustand, Axios, Embla Carousel, Tailwind, TMDB API.
