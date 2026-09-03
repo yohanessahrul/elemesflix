@@ -27,7 +27,7 @@ export const useWatchlists = create<WatchlistStore>((set) => ({
       set(() => ({
         isSuccessAdd: false,
       }));
-    }, 1000);
+    }, 300);
   },
   removeOnWatchlist: (id) =>
     set((state) => ({

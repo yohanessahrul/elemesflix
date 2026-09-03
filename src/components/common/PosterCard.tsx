@@ -31,7 +31,7 @@ export default function PosterCard(props: PosterCardType) {
             className={`${isSuccessAdd ? 'bg-green-500': 'bg-amber-300'} px-4 py-2 rounded-md cursor-pointer flex text-md`}
             onClick={() => addToWatchlistHandler(props.item)}
           >
-            {isSuccessAdd ? <Check /> : <Plus />} &nbsp; Add to Watchlist
+            {isSuccessAdd ? <Check /> : <Plus />} &nbsp; {isSuccessAdd ? "Success" : "Watchlist"}
           </button>
         </div>
       )}
