@@ -1,4 +1,4 @@
-// import { Search, Bell, ChevronDown, Menu } from 'lucide-react';
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -13,23 +13,15 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-5 text-[14px] md:flex">
-          <a href="/movies" className="text-gray-300 transition hover:text-white">
+          <Link to="/movies" className="text-gray-300 transition hover:text-white">
             Movies
-          </a>
-
-          <a
-            href="/tv-shows"
-            className="text-gray-300 transition hover:text-white"
-          >
+          </Link>
+          <Link to="/tv-shows" className="text-gray-300 transition hover:text-white">
             TV Shows
-          </a>
-
-          <a
-            href="/watchlist"
-            className="text-gray-300 transition hover:text-white"
-          >
+          </Link>
+          <Link to="/watchlist" className="text-gray-300 transition hover:text-white">
             My List
-          </a>
+          </Link>
         </nav>
 
         {/* Right Side */}

@@ -6,13 +6,11 @@ import TvShowPage from "../pages/TVShows";
 
 export default function AppRouter() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/tv-shows" element={<TvShowPage />} />
-        <Route path="/watchlist" element={<WatchListPage />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/movies" element={<MoviesPage />} />
+      <Route path="/tv-shows" element={<TvShowPage />} />
+      <Route path="/watchlist" element={<WatchListPage />} />
+    </Routes>
   )
 }

@@ -10,10 +10,10 @@ export default function Home () {
         <p className="text-yellow-400">Hero Component here...</p>
       </section> */}
 
-      <MovieSection title="Upcoming Movies" customMovieHooks={useUpcomingMovies} />
-      <MovieSection title="Popular Movies" customMovieHooks={usePopularMovies} />
-      <TVSection title="Popular TV" customTVHooks={usePopularTv} />
-      <TVSection title="TOP Rated TV" customTVHooks={useTopRatedTv} />
+      <MovieSection title="Upcoming Movies" customMovieHooks={useUpcomingMovies} hasCTA={true} />
+      <MovieSection title="Popular Movies" customMovieHooks={usePopularMovies} hasCTA={true} />
+      <TVSection title="Popular TV" customTVHooks={usePopularTv} hasCTA={true} />
+      <TVSection title="TOP Rated TV" customTVHooks={useTopRatedTv} hasCTA={true} />
     </>
   )
 }

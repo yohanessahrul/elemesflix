@@ -15,6 +15,7 @@ interface TVQueryResult {
 interface RowSectionType {
   title: string;
   customTVHooks: () => TVQueryResult;
+  hasCTA?: boolean;
 }
 
 export default function TVSection(props: RowSectionType) {
@@ -69,6 +70,7 @@ export default function TVSection(props: RowSectionType) {
                       <PosterCard
                         item={item}
                         alt={item.original_name ? item.original_name : ''}
+                        isHasCTA={props.hasCTA}
                       />
                     </div>
                   );

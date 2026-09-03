@@ -15,6 +15,7 @@ interface MovieQueryResult {
 interface RowSectionType {
   title: string;
   customMovieHooks: () => MovieQueryResult;
+  hasCTA?: boolean;
 }
 
 export default function MovieSection(props: RowSectionType) {
@@ -66,7 +67,7 @@ export default function MovieSection(props: RowSectionType) {
                       key={item.id}
                       className="min-w-0 shrink-0 basis-1/3 px-2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5"
                     >
-                      <PosterCard item={item} alt={item.title} />
+                      <PosterCard item={item} alt={item.title} isHasCTA={props.hasCTA} />
                     </div>
                   );
                 })}
