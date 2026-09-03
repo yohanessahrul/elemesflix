@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useWatchlists } from "../../stores/watchlist-store";
 
 export default function Header() {
+  const { watchList } = useWatchlists();
+
   return (
     <header className="fixed left-0 right-0 top-0 z-50 bg-linear-to-b from-black/100 to-transparent">
       <div className="flex h-[68px] items-center px-4 md:px-8 lg:px-12">
@@ -20,7 +23,7 @@ export default function Header() {
             TV Shows
           </Link>
           <Link to="/watchlist" className="text-gray-300 transition hover:text-white">
-            My List
+            My List {watchList.length > 0 ? `(${watchList.length})`: ""}
           </Link>
         </nav>
 
