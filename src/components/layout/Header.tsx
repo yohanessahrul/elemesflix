@@ -50,7 +50,7 @@ export default function Header() {
               placeholder="Search here..."
               onChange={(e) => handleSearch(e.target.value)}
               value={query}
-              className="bg-gray-300 text-gray-600 text-lg px-4 py-1 rounded-2xl" />
+              className="bg-gray-300 text-gray-600 text-lg px-4 py-1 rounded-2xl w-50" />
           </div>
           
           {/* Mobile Menu */}
