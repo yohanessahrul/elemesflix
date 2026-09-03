@@ -21,10 +21,15 @@ export default function PosterCard(props: PosterCardType) {
 
   return (
     <div className="group rounded-lg overflow-hidden cursor-pointer relative">
-      <img
-        src={`${import.meta.env.VITE_TMDB_IMAGE_URL}/w300${props.item.poster_path}`}
-        alt={props.alt}
-      />
+      {props.item.poster_path ?
+        <img
+          src={`${import.meta.env.VITE_TMDB_IMAGE_URL}/w300${props.item.poster_path}`}
+          alt={props.alt}
+        />
+        :
+        <img src="/no-image.png" alt="no-image" />
+      }
+      
       {props.isHasCTA && (
         <div className="absolute top-0 left-0 w-full h-full z-50  flex justify-center items-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
           <button
