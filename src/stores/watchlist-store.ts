@@ -17,12 +17,17 @@ interface WatchlistStore {
 
 export const useWatchlists = create<WatchlistStore>((set) => ({
   isSuccessAdd: false,
-  watchList: [],
+  watchList: JSON.parse(localStorage.getItem('watchlist') || '[]'),
   addToWatchList: (movie) => {
-    set((state) => ({
-      watchList: [...state.watchList, movie],
-      isSuccessAdd: true,
-    }));
+    set((state) => {
+      const newWatchlist = [...state.watchList, movie];
+      localStorage.setItem('watchlist', JSON.stringify(newWatchlist));
+
+      return {
+        watchList: newWatchlist,
+        isSuccessAdd: true,
+      };
+    });
     setTimeout(() => {
       set(() => ({
         isSuccessAdd: false,
@@ -30,7 +35,11 @@ export const useWatchlists = create<WatchlistStore>((set) => ({
     }, 300);
   },
   removeOnWatchlist: (id) =>
-    set((state) => ({
-      watchList: state.watchList.filter((list) => list.id !== id),
-    })),
+    set((state) => {
+      const newWatchlist = state.watchList.filter((list) => list.id !== id);
+      localStorage.setItem('watchlist', JSON.stringify(newWatchlist));
+      return {
+        watchList: newWatchlist,
+      };
+    }),
 }));
