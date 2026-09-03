@@ -33,7 +33,7 @@ export default function PosterCard(props: PosterCardType) {
       {props.isHasCTA && (
         <div className="absolute bottom-0 left-0 w-full z-50  flex justify-center items-end transition-opacity duration-300 opacity-0 group-hover:opacity-100 bg-linear-to-t from-black to-transparent">
           <div className='flex flex-col'>
-            <div className='flex justify-center items-center my-4'>
+            <div className='flex justify-center items-center'>
               <button
                 className={`${isSuccessAdd ? 'bg-green-500': 'bg-amber-300'} px-4 py-2 rounded-md cursor-pointer flex text-md`}
                 onClick={() => addToWatchlistHandler(props.item)}
@@ -41,9 +41,9 @@ export default function PosterCard(props: PosterCardType) {
                 {isSuccessAdd ? <Check /> : <Plus />} &nbsp; {isSuccessAdd ? "Success" : "Watchlist"}
               </button>
             </div>
-            <div className='text-center py-4'>
+            <div className='text-center py-2'>
               <h2 className='text-white font-bold text-lg px-4'>{props.item.original_name ? props.item.original_name : props.item.original_title}</h2>
-              <p className='text-yellow-400'>Rating : {props.item.vote_average}</p>
+              <p className='text-yellow-400 text-[14px]'>Rating : {props.item.vote_average}</p>
             </div>
           </div>
         </div>
@@ -53,7 +53,7 @@ export default function PosterCard(props: PosterCardType) {
         <div className="absolute bottom-0 left-0 w-full z-50  flex justify-center items-center transition-opacity duration-300 opacity-0 group-hover:opacity-100 bg-linear-to-t from-black to-transparent">
           <div className='flex flex-col'>
 
-            <div className='flex justify-center items-center my-4'>
+            <div className='flex justify-center items-center'>
               <button
                 className="bg-red-600 text-white px-4 py-2 rounded-md cursor-pointer flex text-md"
                 onClick={() => {
@@ -63,9 +63,9 @@ export default function PosterCard(props: PosterCardType) {
                 <Trash2 /> &nbsp; Remove
               </button>
             </div>
-            <div className='text-center py-4'>
+            <div className='text-center py-2'>
               <h2 className='text-white font-bold text-lg px-4'>{props.item.original_name ? props.item.original_name : props.item.original_title}</h2>
-              <p className='text-yellow-400'>Rating : {props.item.vote_average}</p>
+              <p className='text-yellow-400 text-[14px]'>Rating : {props.item.vote_average}</p>
             </div>
           </div>
         </div>
